@@ -11,7 +11,7 @@ int main(int argc, char** argv){
 
     while (nh.ok()){
         std_msgs::String our_msg;
-        our_msg.data = "Hello"
+        our_msg.data = "Hello";
         ROS_INFO("hi Sam!");
         our_pub.publish(our_msg);
         rate.sleep();
