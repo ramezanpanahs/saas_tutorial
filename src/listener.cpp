@@ -1,16 +1,17 @@
 #include <ros/ros.h>
 #include <std_msgs/String.h>
 
-void chatterCallback(const std_msgs::String::ConstPtr& msg){ //pointer to string
-    ROS_INFO("I heard: [%s]",msg->data.c_str()); //
+void chatterCallback(const std_msgs::String::ConstPtr& msg) {
+  ROS_INFO("I heard: [%s]", msg->data.c_str());
 }
 
-int main(int argc, char** argv){
-    ros::init(argc, argv, "listener");
-    ros::NodeHandle nh;
-    ros::Subscriber our_sub = nh.subscribe("chatter", 10, chatterCallback); //topicname, number of stored messages in buffer, pointer to function
-    ros::spin(); //lightweight loop
+int main(int argc, char** argv) {
+  ros::init(argc, argv, "listener");
+  ros::NodeHandle nh;
 
+  ros::Subscriber our_sub = nh.subscribe("chatter", 10, chatterCallback);
 
-    return 0;
+  ros::spin();
+
+  return 0;
 }
